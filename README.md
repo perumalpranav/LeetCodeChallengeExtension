@@ -1,7 +1,7 @@
-# LeetCode Random Challenge
+# LeetCode Challenge Extension
 
 ## Overview
-LeetCode Random Challenge is a lightweight Chrome extension designed to promote unbiased problem selection on LeetCode. It achieves this by automatically hiding the difficulty label (Easy, Medium, Hard) on problem pages, while logging the original difficulty in the browser console for reference.
+LeetCode Challenge Extension is a lightweight Chrome extension designed to promote unbiased problem selection on LeetCode. It achieves this by automatically hiding the difficulty label (Easy, Medium, Hard) on problem pages, while logging the original difficulty in the browser console for reference.
 
 ## Features
 - **Difficulty Hiding**: Removes the difficulty label from all LeetCode problem pages.
@@ -11,8 +11,8 @@ LeetCode Random Challenge is a lightweight Chrome extension designed to promote 
 ## Installation
 1. Clone or download the repository:
    ```bash
-   git clone https://github.com/yourusername/LeetCodeRandomChallenge.git
-   cd LeetCodeRandomChallenge
+   git clone https://github.com/yourusername/LeetCodeChallengeExtension.git
+   cd LeetCodeChallengeExtension
    ```
 2. Open Chrome (or any Chromium-based browser) and navigate to `chrome://extensions/`.
 3. Enable **Developer mode** (toggle in the top-right corner).
@@ -35,7 +35,7 @@ LeetCode Random Challenge is a lightweight Chrome extension designed to promote 
 
 ## File Structure
 ```
-LeetCodeRandomChallenge/
+LeetCodeChallengeExtension/
 ├── manifest.json      # Chrome extension manifest (v3)
 ├── Modifier.js        # Content script responsible for hiding and logging difficulty
 └── README.md          # Project documentation
