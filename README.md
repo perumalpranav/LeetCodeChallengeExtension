@@ -46,7 +46,7 @@ LeetCodeRandomChallenge/
 - Any Chromium-based browser supporting Manifest V3
 
 ## Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check [issues](https://github.com/perumalpranav/LeetCodeRandomChallenge/issues) and submit pull requests.
+Contributions, issues, and feature requests are welcome! Feel free to check [issues](https://github.com/perumalpranav/LeetCodeChallengeExtension/issues) and submit pull requests.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
