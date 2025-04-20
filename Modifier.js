@@ -5,7 +5,8 @@ if (difficultyElement) {
     console.log(`This LeetCode problem is: ${diff}`);
 
     //Remove all the special styling that can be hint towards difficulty level
-    difficultyElement.classList.forEach(className => {
+    [...difficultyElement.classList].forEach(className => {
+        console.log(`Class: ${className.toLowerCase()} includes ${diff.toLowerCase()}: ${className.toLowerCase().includes(diff.toLowerCase())}`);
         if (className.toLowerCase().includes(diff.toLowerCase())) {
             difficultyElement.classList.remove(className);
         }
