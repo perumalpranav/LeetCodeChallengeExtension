@@ -36,17 +36,9 @@ function hider() {
 
 hider();
 
-const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        hider();
-      }
-    }
-});
-  
 /*
 Need to find more precise parent element that persists when randomizing to prevent unecessary calls
 const description = document.querySelector('.flex .h-full .w-full .flex-col');
 */
-
+const observer = new MutationObserver(hider);
 observer.observe(document.body, { childList: true, subtree: true });
