@@ -27,21 +27,19 @@ style.innerHTML = `
 
 document.head.appendChild(style);
 
-const difficulty = document.querySelector('.text-difficulty-hard, .text-difficulty-easy, .text-difficulty-medium');
-
-if (difficulty) {
-    difficulty.classList.add('LeetCodeChallengeHider', 'LeetCodeChallengeWidth');
-    difficulty.style.width = '100px';
+function hider() {
+    const difficulty = document.querySelector('.text-difficulty-hard, .text-difficulty-easy, .text-difficulty-medium');
+    if (difficulty && !difficulty.classList.contains('LeetCodeChallengeHider')) {
+      difficulty.classList.add('LeetCodeChallengeHider', 'LeetCodeChallengeWidth');
+    }
 }
 
+hider();
 
 const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        const difficulty = document.querySelector('.text-difficulty-hard, .text-difficulty-easy, .text-difficulty-medium');
-        if (difficulty && !difficulty.classList.contains('LeetCodeChallengeHider')) {
-          difficulty.classList.add('LeetCodeChallengeHider', 'LeetCodeChallengeWidth');
-        }
+        hider();
       }
     }
 });
