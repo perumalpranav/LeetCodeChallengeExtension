@@ -1,40 +1,44 @@
-function hideDifficulties() {
-    //Select all difficulty elements
-    const difficultyElements = document.querySelectorAll('.text-difficulty-hard, .text-difficulty-easy, .text-difficulty-medium');
-    
-    if (difficultyElements.length !== 0) {
-        difficultyElements.forEach(elem => {
-            const diff = elem.innerText;
-            //Log the difficulty
-            console.log(`This LeetCode problem is: ${diff}`);
-            
-            //Remove all the special styling that can be hint towards difficulty level
-            [...elem.classList].forEach(className => {
-                if (className.toLowerCase().includes(diff.toLowerCase())) {
-                    elem.classList.remove(className);
-                }
-            });
-            
-            //Change the text of the display
-            elem.innerText = "Difficulty: Hidden";
-        });
+const style = document.createElement('style');
+style.innerHTML = `
+.LeetCodeChallengeHider {
+    position: relative;
+    overflow: hidden;
+}
+.LeetCodeChallengeHider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.LeetCodeChallengeHider:hover::after {
+    opacity: 0;
+}
+
+.LeetCodeChallengeWidth {
+    width: 100px;
+}
+`;
+
+document.head.appendChild(style);
+
+function hider() {
+    const difficulty = document.querySelector('.text-difficulty-hard, .text-difficulty-easy, .text-difficulty-medium');
+    if (difficulty && !difficulty.classList.contains('LeetCodeChallengeHider')) {
+      difficulty.classList.add('LeetCodeChallengeHider', 'LeetCodeChallengeWidth');
     }
 }
 
-hideDifficulties();
-
-//Attach observer to the document body
-let timeout;
-const observer = new MutationObserver(() => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-        hideDifficulties();
-    }, 100);
-});
+hider();
 
 /*
-Need to find more precise parent element that persists when randomizing to prevent unecesary calls
+Need to find more precise parent element that persists when randomizing to prevent unecessary calls
 const description = document.querySelector('.flex .h-full .w-full .flex-col');
 */
-
+const observer = new MutationObserver(hider);
 observer.observe(document.body, { childList: true, subtree: true });
